@@ -1,0 +1,7 @@
+Path to references.bib in lin 40
+The title in line 97
+Name of degree in line 101
+Name, Dept. , institute in line 104
+path to logo image in line 105
+Prof etc. in lines 106-108
+Content under every section

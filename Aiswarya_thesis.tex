@@ -1,0 +1,289 @@
+% Thesis template put together by Your
+% April 2020
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper, oneside, 11pt]{book}
+% \documentclass[a4paper, 11pt]{book}
+
+% packges to include
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref} % hidelinks removes the box around links
+\usepackage{lipsum} % easy dummy text
+\usepackage{blindtext}
+\usepackage{graphicx} % more control over figures using includegraphics
+\usepackage[utf8]{inputenc} % avoid broken or weird characters
+\usepackage[T1]{fontenc}
+\usepackage{amsmath} % math capabilities
+\usepackage{chngcntr} % Defines commands \counterwithin and \counterwithout
+% \usepackage{scrextend} %
+\usepackage{array} % extends the options for column formats in
+\usepackage{setspace} % more size spacinf options
+\usepackage{subfigure} %
+\usepackage{bold-extra} % allows small caps and other forms
+\usepackage[dvipsnames]{xcolor} % useful set of color definitions
+\usepackage[inline]{enumitem} % alows nice numbering in enumerate
+\usepackage[tableposition=top]{caption} % caption options
+\usepackage{babel,csquotes,xpatch} % recommended for biblatex
+\usepackage[backend=biber,citestyle=numeric, bibstyle=nature]{biblatex} % handle references
+\usepackage{titlesec} % options to format headings
+\usepackage[hang, flushmargin]{footmisc} % footnote options
+\usepackage{etoolbox} %
+\usepackage{placeins} % allows in better positioning of figures etc.
+\usepackage{float}
+\usepackage{afterpage} % allows \afterpage{\clearpage} and the current page will be filled up with text as usual,
+                       % but then the \clearpage command will flush out all the floats before the next text page begins.
+\usepackage{multicol} % neat formatting of paragraphs
+\usepackage{appendix} % use appendices
+\usepackage{apptools} % titesec different format for appendix
+% set up package specific parameters and custom commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addbibresource{references.bib} % make sure to include the  correct path here
+\geometry{
+	a4paper,
+	top=1.1in,
+	bottom=1.3in,
+	inner=1.1in,
+	outer=1in
+}
+\hypersetup{
+	colorlinks=true,
+	linkcolor = red,
+	citecolor = black
+}
+\captionsetup{
+	labelfont=sc
+}
+\graphicspath{{../Figures/}}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.35cm}
+%\singlespacing
+%\doublespacing
+\onehalfspacing
+% or
+%\setstretch{1.25}   %% change this number as you wish. 1.667 is double spacing.
+
+% from titesec EDIT AS DESIRED
+% \titleformat{<command>}[<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
+
+% No parts in my thesis
+% \titleformat{\part}[display]{\Huge\sc\singlespacing\bfseries\centering}
+%   {\huge\sc\centering Part\quad\thepart\vspace{10pt}}{0pt}{}[\vspace{0.5em}]
+
+% \chaptertitlename 'chapter' for chapters and 'appendix' for appendices
+\titleformat{\chapter}[display]{\huge\sc\bfseries\singlespacing}
+  {\vspace{-100pt}\FloatBarrier\large\sc \chaptertitlename\hspace{2pt}\huge{\thechapter}}{0pt}{\vspace{-10pt}}[\hrule\vspace{-15pt}]
+
+\titleformat{name=\chapter,numberless}[display]{\Huge\sc\centering\bfseries\singlespacing}{}{0pt}{\vspace{-100pt}}[\vspace{-30pt}]
+
+\titleformat{\section}[hang]{\Large\bfseries\singlespacing}
+  {}{0pt}{\thesection\quad}[\vspace{-1em}]
+
+\titleformat{\subsection}[hang]{\large\bfseries\singlespacing}
+  {}{0pt}{\thesubsection\quad}[\vspace{-1em}]
+
+% before-code has \vspace{-2em} otherwise excess space after previous para
+% if subsub title is immediately below  subtitle and not para text add the vspace that was removed else titles crammed
+\titleformat{\subsubsection}[hang]{\sc\singlespacing}
+  {}{0pt}{\vspace{-2em}}[\vspace{-1em}]
+
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\setcounter{tocdepth}{1}
+%\makeatletter
+%\titleformat{\chapter}[display]{\singlespacing\huge\scshape}{\vspace{-1cm}\@chapapp~\thechapter\vspace{-1cm}}{1\baselineskip}{}
+%\makeatother
+
+\title{\thispagestyle{empty}\begin{singlespace}
+	\Huge \vspace{-2cm}\textbf{\textsc{The Main Title of this Project}}\\ %Title here
+	\end{singlespace}
+	\normalsize
+	\vspace{4em}
+	\textsc{A Thesis submitted\\towards the completion of the degree\\\textbf{\textsc{\Large{Master of Science}}}}\\
+}
+
+\author{by \\\large{\sc \textbf{Your Name}}\\\normalsize Name of Department\\Some of Institute Science\\[3em]
+	\includegraphics[scale=0.4]{logo.png}\\[2em]
+	supervised by \\\large{\sc\bfseries Prof The Guide}\\
+	Name of Department\\
+	Some of Institute Science\\[1.5em]
+}
+\date{}
+
+
+
+\begin{document}
+\pagenumbering{roman}
+\renewcommand{\thepage}{0}
+
+\maketitle
+
+\frontmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%				FRONT MATTER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Abstract}
+\lipsum[1-3]
+\newpage
+\chapter*{Acknowledgements}
+\lipsum[1]
+
+\newpage
+%%%% CERTIFICATE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Certificate}
+Ms\ Your Name has worked under my supervision between May 2019 and June 2020. I have gone through her work on The title of this thesis, presented in this thesis, and have found it to be satisfactory.\\
+
+\hspace*{\stretch{3}}
+Prof The Guide\\
+\hspace{\stretch{1}}
+\hspace*{\stretch{3}}
+Name of Department\\
+\hspace{\stretch{1}}
+\hspace*{\stretch{3}}
+Some Institute of Science\\
+\hspace{\stretch{1}}
+
+%%%% DECLARATION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Declaration}
+I, Your Name, have under the supervision of Prof\ The Guide between May 20xx and June 20xx, participated in a project to investigate microbiome changes in chronic pancreatitis. No unfair means have been used at any point in this project. All data and sample collection has been carried out with permission from the relevant authorities. All data, analyses, images, tables, and simulations in this thesis are my own.\\
+
+\hspace*{\stretch{3}}
+Your Name\\
+\hspace{\stretch{1}}
+\hspace*{\stretch{3}}
+Name of Department\\
+\hspace{\stretch{1}}
+\hspace*{\stretch{3}}
+Some Institute of Science\\[2em]
+\hspace{\stretch{1}}
+\newpage
+
+%%%% ABBREVIATIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Notation \& Abbreviation}
+% USE IF NOTATIONS ARE THERE
+\begin{center}
+\begin{tabular}{| c | l |}
+\hline
+	\textsc{Sym} & \textsc{Meaning}\\
+	\textsc{Bo} & \textsc{Meaning}\\
+	\textsc{L} & \textsc{Meaning}\\
+	\hline\hline
+
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{| c | l |}
+\hline
+	\textsc{Abbreviation} & \textsc{Full form}\\
+	\hline\hline
+  COVID-19 & Coronavirus Disease of 2019 \\
+  SARS & Severe Acute Respiratory Syndrome \\
+  OID & Okay I'm Done \\
+  \hline
+	\end{tabular}
+\end{center}
+
+%%%% TOC AND LISTS  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{
+\hypersetup{linkcolor=black}
+\begin{singlespace}
+\newpage\tableofcontents
+\newpage\listoffigures
+\newpage\listoftables
+\end{singlespace}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%				CHAPTER  :  Introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\pagenumbering{arabic}
+\mainmatter
+
+\chapter{Introduction}
+\label{ch:intro}
+
+%%%% GUT MICROBIOME  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The first section}
+\label{sec:microbiome}
+\lipsum[1] And some line just to illustrate citation \supercite{example} format.
+
+  \subsection{It has a sub-section}
+
+  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placeratac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget,consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitantmorbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Crasviverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices.
+
+      \subsubsection{Break into sub-sub-sections for clarity}
+      \lipsum[1]
+			\begin{figure}
+			  \centering
+				\includegraphics[width=1in, keepaspectratio]{logo.png}
+				\caption[Appears in figure list]{\small Figure description goes here. Just a figure to see how it looks.}
+			\end{figure}
+
+      \subsubsection{another sub-sub-section}
+      \lipsum[1-2]
+
+      \subsubsection{Ok you get the idea}
+      \lipsum[1]
+
+    \subsection{Another sub-section}
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placeratac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget,consectetuer id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitantmorbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo. Crasviverra metus rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices.
+    Citation to test order of sections.
+
+%%%% CP AND GUT MICROBIOME  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The second section}
+
+\subsection{Another sub-section}
+\lipsum[1-3]
+\begin{figure}
+  \centering
+	\includegraphics[width=1in, keepaspectratio]{logo.png}
+	\caption[Short Caption]{\small Just a figure in this section}
+\end{figure}
+\lipsum[1]
+
+\afterpage{\clearpage}
+\FloatBarrier
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%				CHAPTER  :  Methods
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Methods}
+
+A few lines if you like
+
+\section{Methods-section}
+\lipsum[1-2]
+
+\afterpage{\clearpage}
+\FloatBarrier
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%				APPENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\begin{appendices}
+\appendixpage
+\addappheadtotoc
+%%%% Appendix A  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Name of the appendix}
+\end{appendices}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%				REFERENCES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+\addcontentsline{toc}{chapter}{Bibliography}
+\begin{singlespace}
+\small
+\printbibliography
+
+
+\end{singlespace}
+\end{document}
