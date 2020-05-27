@@ -5,3 +5,4 @@ Name, Dept. , institute in line 104
 path to logo image in line 105
 Prof etc. in lines 106-108
 Content under every section
+labels defined as \label{} eg. \label{sec:microbiome}
