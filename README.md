@@ -2,8 +2,9 @@
 
 > This template was inspired by Pranav Minasandra's (@pminasandra) [template](https://github.com/pminasandra/iisc-bio-thesis/blob/master/template.pdf). I have added the option of including appendices and some comments that allow for easier comprehension, navigation and editing especially for novices like me.
 
+This is a thesis template particulary suited to the thesis (BS and MS) requirements of the undergraduate programme (though no official set of requirements exists) of the Indian Institute of Science.
 
-I have included dummy figures, text and citations everywhere. Be sure to get rid of them. Below is a list of some obvious thingd to replace before you use.
+I have included dummy figures, text and citations everywhere. Be sure to get rid of them. Below is a list of some things to replace before you use.
 
 - Path to references.bib (in line 40)
 - The title (in line 97)
