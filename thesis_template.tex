@@ -35,6 +35,8 @@
 \usepackage{multicol} % neat formatting of paragraphs
 \usepackage{appendix} % use appendices
 \usepackage{apptools} % titesec different format for appendix
+\usepackage{listings} % for including fancy looking code
+\usepackage{fancyhdr} % rather self-explainatory
 % set up package specific parameters and custom commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addbibresource{references.bib} % make sure to include the  correct path here
@@ -73,7 +75,7 @@
 \titleformat{\chapter}[display]{\huge\sc\bfseries\singlespacing}
   {\vspace{-100pt}\FloatBarrier\large\sc \chaptertitlename\hspace{2pt}\huge{\thechapter}}{0pt}{\vspace{-10pt}}[\hrule\vspace{-15pt}]
 
-\titleformat{name=\chapter,numberless}[display]{\Huge\sc\centering\bfseries\singlespacing}{}{0pt}{\vspace{-100pt}}[\vspace{-30pt}]
+\titleformat{name=\chapter,numberless}[display]{\Huge\sc\centering\singlespacing}{}{0pt}{\vspace{-100pt}}[\vspace{-30pt}]
 
 \titleformat{\section}[hang]{\Large\bfseries\singlespacing}
   {}{0pt}{\thesection\quad}[\vspace{-1em}]
@@ -92,6 +94,33 @@
 %\makeatletter
 %\titleformat{\chapter}[display]{\singlespacing\huge\scshape}{\vspace{-1cm}\@chapapp~\thechapter\vspace{-1cm}}{1\baselineskip}{}
 %\makeatother
+
+%%%% formatting for listings package %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{\thispagestyle{empty}\begin{singlespace}
 	\Huge \vspace{-2cm}\textbf{\textsc{The Main Title of this Project}}\\ %Title here
@@ -127,13 +156,24 @@
 \chapter*{Preface}
 \addcontentsline{toc}{chapter}{Preface} % adds this section to the TOC (table of contents)
 Anything that needs to be said about the context of the work (eg. thesis submitted during lockdown - need to mention that data collection was not complete, written for the purpose of final year project when presentations (thesis defense) was cancelled - so tone of writing not traditional et.) that does not fit into the Abstract or elsewhere goes here.
+\newpage
 
 %%%% ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter*{Abstract}
+\pagestyle{fancy}
+\lhead{Thesis advisor: Prof. The Guide}
+\rhead{Your Name}
+\renewcommand{\headrulewidth}{0.0pt}
+\vspace*{35pt}
+\begin{center}
+  	\Huge {The Title of The Thesis} \normalsize \\
+  	\vspace*{20pt}
+  	\scshape \Huge Abstract \\ \rm
+\end{center}
 \hrule
-\vspace{1em}
-\lipsum[1-3]
-\newpage
+\lipsum[2-3]
+\vspace*{\fill}
+\newpage \lhead{} \rhead{}
+}
 
 %%%% ACKNOWLEDGEMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter*{Acknowledgements}
@@ -287,7 +327,21 @@ A few lines if you like
 \appendixpage
 \addappheadtotoc
 %%%% Appendix A  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Name of the appendix}
+\chapter{Appendix to show code}
+Just a small bit to illustrate code display
+
+\begin{lstlisting}[language=Python]
+import module
+
+def someFunc(list):
+for item in list:
+	do something on item
+	if item is blah:
+		ignore item
+	else:
+		return list
+\end{lstlisting}
+
 \end{appendices}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
